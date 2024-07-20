@@ -1,7 +1,7 @@
 const emojis = ["🤡", "💩"];
 const container = document.querySelector('.container');
 const numEmojis = 20;
-const speed = 2;
+const speed = 1;
 
 function createEmoji(index) {
     const emoji = document.createElement('div');
@@ -18,14 +18,14 @@ function moveEmoji(emoji) {
     let positionY = parseFloat(emoji.style.top);
 
     function updatePosition() {
-        positionX += speed;
-        positionY += speed;
+        positionX += Math.random() * speed;
+        positionY += Math.random() * speed;
         emoji.style.left = `${positionX}vw`;
         emoji.style.top = `${positionY}vh`;
 
         if (positionX > 100 || positionY > 100) {
-            positionX = -10;
-            positionY = -10;
+            positionX = Math.random() * -20;
+            positionY = Math.random() * -20;
         }
 
         requestAnimationFrame(updatePosition);
